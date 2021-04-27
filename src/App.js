@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import Navbar from './component/Navbar';
+import Home from './pages/Home';
+import Notfound from './pages/Notfound';
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';  
+import Create from './pages/Create';
+import Blogdetail from './pages/Blogdetail';
+//npx json-server --watch exampledata/data.json --port 1234
+//coba bikin req api, dari file json
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar/>
+        <div className="content">
+          <Switch>
+            <Route exact path="/">
+              <Home/>
+            </Route>
+            <Route path="/create">
+              <Create/>
+            </Route>
+            <Route path="/blogs/:idBlog">
+              <Blogdetail/>
+            </Route>
+            <Route path="*">
+              <Notfound/>
+            </Route>
+          </Switch>
+        </div>
+      </div>
+    </Router>
   );
 }
 
