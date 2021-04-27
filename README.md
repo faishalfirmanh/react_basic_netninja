@@ -7,3 +7,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 In the project directory, you can run:
 
 ### `yarn start`
+### 'jalankan'
+* git clone
+* cd project
+* npm install /yarn
+* yarn start
+### `untuk generate server json`
+* npx json-server --watch exampledata/data.json --port 1234
+
